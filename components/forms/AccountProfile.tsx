@@ -42,6 +42,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
   const router = useRouter();
   const pathname = usePathname();
+
+  // For uploadThing
   const { startUpload } = useUploadThing("media");
 
   // For our handleImage 
@@ -70,8 +72,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     if (hasImageChanged) {
       const imgRes = await startUpload(files);
 
-      if (imgRes && imgRes[0].fileUrl) {
-        values.profile_photo = imgRes[0].fileUrl;
+      if (imgRes && imgRes[0].url) {
+        values.profile_photo = imgRes[0].url;
       }
     }
 
